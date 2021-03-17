@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Sales_Tax
+﻿namespace Sales_Tax
 {
    public class Item
     {
