@@ -1,24 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Sales_Tax.Models
 {
    public class Receipt 
    {
-       public  Task<Receipt> CreateReceipt(Receipt receipt)
-       {
-            ReceiptDetails receiptDetails = new ReceiptDetails();
-            receiptDetails.BasketName = "Input 1";
-            
+       public ReceiptDetails ReceiptDetails { get; set; }
+       public List<Item> Items { get; set; }
 
-           return  Receipt();
-       }
-
-        private  Task<Receipt> Receipt()
-        {
-           
-        }
-
-     
    }
  
 }
