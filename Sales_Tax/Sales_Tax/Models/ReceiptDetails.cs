@@ -1,4 +1,4 @@
-﻿namespace Sales_Tax
+﻿namespace Sales_Tax.Models
 {
     public class ReceiptDetails
     {
