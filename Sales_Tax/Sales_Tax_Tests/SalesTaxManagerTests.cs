@@ -1,83 +1,84 @@
-//using System;
-//using System.Threading.Tasks;
-//using Sales_Tax.Logic;
-//using Sales_Tax.Models;
-//using Xunit;
+using System;
+using System.ComponentModel;
+using Sales_Tax.Logic;
+using Sales_Tax.Models;
+using Sales_Tax_Tests.TestData;
+using Xunit;
 
-//namespace Sales_Tax_Tests
-//{
-//    public class SalesTaxManagerTests
-//    {
-//        [Fact]
-//        public void CalculateSalesTaxPerItemTrueNoTax()
-//        {
-//            var item = new Item()
-//            {
-//                Quantity = 1,
-//                Price = 12.49,
-//                Name = "Book"
-//            };
+namespace Sales_Tax_Tests
+{
+    public class SalesTaxManagerTests
+    {
+        [Fact]
+        public void CalculateSalesTaxForBookItem()
+        {
+            double interestOnProduct = 0;
+            var itemTestData = ItemTestData.BookItem;
 
-//            var itemCategory = new ItemCategory()
-//            {
-//                CategoryName = "Book",
-//                CategoryTaxRate = 0
-//            };
+            var manager = new SalesTaxManager();
 
-//            var manager = new SalesTaxManager();
-//            double interestOnProduct =  manager.CalculateSalesTaxPerItem(itemCategory, item);
-//            double itemFinalPriceWithTax = Math.Round(interestOnProduct + item.Price, 2) * item.Quantity;
+            if (itemTestData.CategoryTax.TaxableItemCategories.Count != 0)
+            {
+                foreach (var item in itemTestData.CategoryTax.TaxableItemCategories)
+                {
+                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
+                }
+            }
+            var basket = new Basket();
+            basket.Quantity = 1;
+         
+            double itemFinalPriceWithTax = Math.Round(interestOnProduct + itemTestData.Price, 2) * basket.Quantity;
 
-//            Assert.Equal(0, interestOnProduct);
-//            Assert.Equal(12.49, itemFinalPriceWithTax);
-//        }
+            Assert.Equal(0, interestOnProduct);
+            Assert.Equal(12.49, itemFinalPriceWithTax);
+        }
 
-//        [Fact]
-//        public void CalculateSalesTaxPerItemTrueTax()
-//        {
-//            var item = new Item()
-//            {
-//                Quantity = 1,
-//                Price = 14.99,
-//                Name = "Music CD"
-//            };
+        [Fact]
+        public void CalculateSalesTaxForMusicItem()
+        {
+            double interestOnProduct = 0;
+            var itemTestData = ItemTestData.MusicCdItem;
 
-//            var itemCategory = new ItemCategory()
-//            {
-//                CategoryName = "All",
-//                CategoryTaxRate = 10
-//            };
+            var manager = new SalesTaxManager();
 
-//            var manager = new SalesTaxManager();
-//            double interestOnProduct = manager.CalculateSalesTaxPerItem(itemCategory, item);
-//            double itemFinalPriceWithTax = Math.Round(interestOnProduct + item.Price, 2) * item.Quantity;
+            if (itemTestData.CategoryTax.TaxableItemCategories.Count != 0)
+            {
+                foreach (var item in itemTestData.CategoryTax.TaxableItemCategories)
+                {
+                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
+                }
+            }
+            var basket = new Basket();
+            basket.Quantity = 1;
 
-//            Assert.Equal(1.499, interestOnProduct);
-//            Assert.Equal(16.49, itemFinalPriceWithTax);
-//        }
+            double itemFinalPriceWithTax = Math.Round(interestOnProduct + itemTestData.Price, 2) * basket.Quantity;
 
-//        [Fact]
-//        public void CalculateSalesImportTaxPerItemTrue()
-//        {
-//            var item = new Item()
-//            {
-//                Quantity = 1,
-//                Price = 47.50,
-//                Name = "Imported bottle of perfume"
-//            };
+            Assert.Equal(1.499, interestOnProduct);
+            Assert.Equal(16.49, itemFinalPriceWithTax);
+        }
 
-//            var itemCategory = new ItemCategory()
-//            {
-//                CategoryName = "All",
-//                CategoryTaxRate = 10
-//            };
+        //[Fact]
+        //public void CalculateSalesImportTaxPerItemTrue()
+        //{
+        //    var item = new Item()
+        //    {
+        //        Quantity = 1,
+        //        Price = 47.50,
+        //        Name = "Imported bottle of perfume"
+        //    };
 
-//            var manager = new SalesTaxManager();
-//            double interestOnProduct = manager.CalculateSalesTaxPerItem(itemCategory, item);
-//            double itemFinalPriceWithTax = Math.Round(interestOnProduct + item.Price, 2) * item.Quantity;
+        //    var itemCategory = new ItemCategory()
+        //    {
+        //        CategoryName = "All",
+        //        CategoryTaxRate = 10
+        //    };
 
-//            Assert.Equal(1.499, interestOnProduct);
-//            Assert.Equal(16.49, itemFinalPriceWithTax);
-//        }
-//    }
-//}
+        //    var manager = new SalesTaxManager();
+        //    double interestOnProduct = manager.CalculateSalesTaxPerItem(itemCategory, item);
+        //    double itemFinalPriceWithTax = Math.Round(interestOnProduct + item.Price, 2) * item.Quantity;
+
+        //    Assert.Equal(1.499, interestOnProduct);
+        //    Assert.Equal(16.49, itemFinalPriceWithTax);
+        //}
+    }
+}

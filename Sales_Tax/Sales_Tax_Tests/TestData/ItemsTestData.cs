@@ -9,7 +9,8 @@ namespace Sales_Tax_Tests.TestData
             new Item
             {
                 Price = 12.49,
-                Name = "Book"
+                Name = "Book",
+                CategoryTax = new CategoryTax{TaxableItemCategories = new List<TaxableItemCategory>{}}
             };
         public static Item MusicCdItem =>
             new Item
