@@ -3,6 +3,6 @@
    public class TaxableItemCategory
     {
         public string CategoryName { get; set; }
-        public int CategoryTaxRate { get; set; }
+        public decimal CategoryTaxRate { get; set; }
     }
 }

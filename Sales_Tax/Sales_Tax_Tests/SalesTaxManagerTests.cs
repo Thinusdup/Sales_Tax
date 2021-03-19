@@ -1,5 +1,4 @@
-using System;
-using System.ComponentModel;
+using System.Collections.Generic;
 using Sales_Tax.Logic;
 using Sales_Tax.Models;
 using Sales_Tax_Tests.TestData;
@@ -9,10 +8,13 @@ namespace Sales_Tax_Tests
 {
     public class SalesTaxManagerTests
     {
+
+        //Input 1
         [Fact]
         public void CalculateSalesTaxForBookItem()
         {
-            double interestOnProduct = 0;
+            decimal interestOnProduct = 0;
+
             var itemTestData = ItemTestData.BookItem;
 
             var manager = new SalesTaxManager();
@@ -24,19 +26,20 @@ namespace Sales_Tax_Tests
                     interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
                 }
             }
-            var basket = new Basket();
-            basket.Quantity = 1;
-         
-            double itemFinalPriceWithTax = Math.Round(interestOnProduct + itemTestData.Price, 2) * basket.Quantity;
 
+            var finalItemPriceWithTax = itemTestData.Price;
+            if (interestOnProduct != 0)
+            {
+                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestOnProduct, itemTestData.Price);
+            }
             Assert.Equal(0, interestOnProduct);
-            Assert.Equal(12.49, itemFinalPriceWithTax);
+            Assert.Equal(12.49M, finalItemPriceWithTax);
         }
 
         [Fact]
         public void CalculateSalesTaxForMusicItem()
         {
-            double interestOnProduct = 0;
+            decimal interestOnProduct = 0;
             var itemTestData = ItemTestData.MusicCdItem;
 
             var manager = new SalesTaxManager();
@@ -48,37 +51,314 @@ namespace Sales_Tax_Tests
                     interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
                 }
             }
-            var basket = new Basket();
-            basket.Quantity = 1;
+            var finalItemPriceWithTax = itemTestData.Price;
+            if (interestOnProduct != 0)
+            {
+                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestOnProduct, itemTestData.Price);
+            }
 
-            double itemFinalPriceWithTax = Math.Round(interestOnProduct + itemTestData.Price, 2) * basket.Quantity;
-
-            Assert.Equal(1.499, interestOnProduct);
-            Assert.Equal(16.49, itemFinalPriceWithTax);
+            Assert.Equal(1.5M, interestOnProduct);
+            Assert.Equal(16.49M, finalItemPriceWithTax);
         }
 
-        //[Fact]
-        //public void CalculateSalesImportTaxPerItemTrue()
-        //{
-        //    var item = new Item()
-        //    {
-        //        Quantity = 1,
-        //        Price = 47.50,
-        //        Name = "Imported bottle of perfume"
-        //    };
+        [Fact]
+        public void CalculateSalesTaxForChocolateBarItem()
+        {
+            decimal interestOnProduct = 0;
+            var itemTestData = ItemTestData.ChocolateBarItem;
 
-        //    var itemCategory = new ItemCategory()
-        //    {
-        //        CategoryName = "All",
-        //        CategoryTaxRate = 10
-        //    };
+            var manager = new SalesTaxManager();
 
-        //    var manager = new SalesTaxManager();
-        //    double interestOnProduct = manager.CalculateSalesTaxPerItem(itemCategory, item);
-        //    double itemFinalPriceWithTax = Math.Round(interestOnProduct + item.Price, 2) * item.Quantity;
+            if (itemTestData.CategoryTax.TaxableItemCategories.Count != 0)
+            {
+                foreach (var item in itemTestData.CategoryTax.TaxableItemCategories)
+                {
+                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
+                }
+            }
+            var finalItemPriceWithTax = itemTestData.Price;
+            if (interestOnProduct != 0)
+            {
+                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestOnProduct, itemTestData.Price);
+            }
 
-        //    Assert.Equal(1.499, interestOnProduct);
-        //    Assert.Equal(16.49, itemFinalPriceWithTax);
-        //}
+            Assert.Equal(0M, interestOnProduct);
+            Assert.Equal(0.85M, finalItemPriceWithTax);
+        }
+
+        [Fact]
+        public void CalculateBasketInput1Results()
+        {
+            var manager = new SalesTaxManager();
+
+            decimal basketTotalTax = 0;
+            decimal basketTotalPrice = 0;
+
+            var basketItems = new List<Item>
+            {
+                ItemTestData.BookItem,
+                ItemTestData.MusicCdItem,
+                ItemTestData.ChocolateBarItem
+            };
+
+            foreach (var basketItem in basketItems)
+            {
+                decimal interestPerProduct = 0;
+
+                if (basketItem.CategoryTax.TaxableItemCategories.Count != 0)
+                {
+                    foreach (var item in basketItem.CategoryTax.TaxableItemCategories)
+                    {
+                        interestPerProduct += manager.CalculateSalesTaxPerItem(item, basketItem);
+                    }
+                }
+                var finalItemPriceWithTax = basketItem.Price;
+                if (interestPerProduct != 0)
+                {
+                    finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestPerProduct, basketItem.Price);
+                }
+
+                basketTotalTax += interestPerProduct;
+                basketTotalPrice += finalItemPriceWithTax;
+            }
+            
+            Assert.Equal(1.50M, basketTotalTax);
+            Assert.Equal(29.83M, basketTotalPrice);
+        }
+
+        //Input 2
+        [Fact]
+        public void CalculateSalesTaxForImportedBottleOfImportedBoxOfChocolatesItem()
+        {
+            decimal interestOnProduct = 0;
+            var itemTestData = ItemTestData.ImportedBoxOfChocolatesItem;
+
+            var manager = new SalesTaxManager();
+
+            if (itemTestData.CategoryTax.TaxableItemCategories.Count != 0)
+            {
+                foreach (var item in itemTestData.CategoryTax.TaxableItemCategories)
+                {
+                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
+                }
+            }
+
+            var finalItemPriceWithTax = itemTestData.Price;
+            if (interestOnProduct != 0)
+            {
+                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestOnProduct, itemTestData.Price);
+            }
+
+            Assert.Equal(0.50M, interestOnProduct);
+            Assert.Equal(10.50M, finalItemPriceWithTax);
+        }
+        [Fact]
+        public void CalculateSalesTaxForImportedBottleOfPerfumeItem()
+        {
+            decimal interestOnProduct = 0;
+            var itemTestData = ItemTestData.ImportedBottleOfPerfume;
+
+            var manager = new SalesTaxManager();
+
+            if (itemTestData.CategoryTax.TaxableItemCategories.Count != 0)
+            {
+                foreach (var item in itemTestData.CategoryTax.TaxableItemCategories)
+                {
+                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
+                }
+            }
+
+            var finalItemPriceWithTax = itemTestData.Price;
+            if (interestOnProduct != 0)
+            {
+                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestOnProduct, itemTestData.Price);
+            }
+
+            Assert.Equal(7.15M, interestOnProduct);
+            Assert.Equal(54.65M, finalItemPriceWithTax);
+        }
+
+        [Fact]
+        public void CalculateBasketInput2Results()
+        {
+            var manager = new SalesTaxManager();
+
+            decimal basketTotalTax = 0;
+            decimal basketTotalPrice = 0;
+
+            var basketItems = new List<Item>
+            {
+                ItemTestData.ImportedBoxOfChocolatesItem,
+                ItemTestData.ImportedBottleOfPerfume
+            };
+
+            foreach (var basketItem in basketItems)
+            {
+                decimal interestPerProduct = 0;
+
+                if (basketItem.CategoryTax.TaxableItemCategories.Count != 0)
+                {
+                    foreach (var item in basketItem.CategoryTax.TaxableItemCategories)
+                    {
+                        interestPerProduct += manager.CalculateSalesTaxPerItem(item, basketItem);
+                    }
+                }
+                var finalItemPriceWithTax = basketItem.Price;
+                if (interestPerProduct != 0)
+                {
+                    finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestPerProduct, basketItem.Price);
+                }
+
+                basketTotalTax += interestPerProduct;
+                basketTotalPrice += finalItemPriceWithTax;
+            }
+
+            Assert.Equal(7.65M, basketTotalTax);
+            Assert.Equal(65.15M, basketTotalPrice);
+        }
+
+        //Input 3
+
+        [Fact]
+        public void CalculateSalesTaxForImportedBottleOfPerfumeNo2Item()
+        {
+            decimal interestOnProduct = 0;
+            var itemTestData = ItemTestData.ImportedBottleOfPerfumeNo2Item;
+
+            var manager = new SalesTaxManager();
+
+            if (itemTestData.CategoryTax.TaxableItemCategories.Count != 0)
+            {
+                foreach (var item in itemTestData.CategoryTax.TaxableItemCategories)
+                {
+                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
+                }
+            }
+            var finalItemPriceWithTax = itemTestData.Price;
+            if (interestOnProduct != 0)
+            {
+                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestOnProduct, itemTestData.Price);
+            }
+
+            Assert.Equal(4.2M, interestOnProduct);
+            Assert.Equal(32.19M, finalItemPriceWithTax);
+        }
+
+        [Fact]
+        public void CalculateSalesTaxForBottleOfPerfumeItem()
+        {
+            decimal interestOnProduct = 0;
+            var itemTestData = ItemTestData.BottleOfPerfumeItem;
+
+            var manager = new SalesTaxManager();
+
+            if (itemTestData.CategoryTax.TaxableItemCategories.Count != 0)
+            {
+                foreach (var item in itemTestData.CategoryTax.TaxableItemCategories)
+                {
+                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
+                }
+            }
+            var finalItemPriceWithTax = itemTestData.Price;
+            if (interestOnProduct != 0)
+            {
+                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestOnProduct, itemTestData.Price);
+            }
+
+            Assert.Equal(1.9M, interestOnProduct);
+            Assert.Equal(20.89M, finalItemPriceWithTax);
+        }
+
+        [Fact]
+        public void CalculateSalesTaxForParacetamolItem()
+        {
+            decimal interestOnProduct = 0;
+            var itemTestData = ItemTestData.BottleOfParacetamolItem;
+
+            var manager = new SalesTaxManager();
+
+            if (itemTestData.CategoryTax.TaxableItemCategories.Count != 0)
+            {
+                foreach (var item in itemTestData.CategoryTax.TaxableItemCategories)
+                {
+                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
+                }
+            }
+            var finalItemPriceWithTax = itemTestData.Price;
+            if (interestOnProduct != 0)
+            {
+                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestOnProduct, itemTestData.Price);
+            }
+
+            Assert.Equal(0M, interestOnProduct);
+            Assert.Equal(9.75M, finalItemPriceWithTax);
+        }
+
+        [Fact]
+        public void CalculateSalesTaxForImportedBoxOfChocolates2Item()
+        {
+            decimal interestOnProduct = 0;
+            var itemTestData = ItemTestData.ImportedBoxOfChocolates2Item;
+
+            var manager = new SalesTaxManager();
+
+            if (itemTestData.CategoryTax.TaxableItemCategories.Count != 0)
+            {
+                foreach (var item in itemTestData.CategoryTax.TaxableItemCategories)
+                {
+                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
+                }
+            }
+            var finalItemPriceWithTax = itemTestData.Price;
+            if (interestOnProduct != 0)
+            {
+                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestOnProduct, itemTestData.Price);
+            }
+
+            Assert.Equal(0.6M, interestOnProduct);
+            Assert.Equal(11.85M, finalItemPriceWithTax);
+        }
+
+        [Fact]
+        public void CalculateBasketInput3Results()
+        {
+            var manager = new SalesTaxManager();
+
+            decimal basketTotalTax = 0;
+            decimal basketTotalPrice = 0;
+
+            var basketItems = new List<Item>
+            {
+                ItemTestData.ImportedBottleOfPerfumeNo2Item,
+                ItemTestData.BottleOfPerfumeItem,
+                ItemTestData.BottleOfParacetamolItem,
+                ItemTestData.ImportedBoxOfChocolates2Item
+            };
+
+            foreach (var basketItem in basketItems)
+            {
+                decimal interestPerProduct = 0;
+
+                if (basketItem.CategoryTax.TaxableItemCategories.Count != 0)
+                {
+                    foreach (var item in basketItem.CategoryTax.TaxableItemCategories)
+                    {
+                        interestPerProduct += manager.CalculateSalesTaxPerItem(item, basketItem);
+                    }
+                }
+                var finalItemPriceWithTax = basketItem.Price;
+                if (interestPerProduct != 0)
+                {
+                    finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestPerProduct, basketItem.Price);
+                }
+
+                basketTotalTax += interestPerProduct;
+                basketTotalPrice += finalItemPriceWithTax;
+            }
+
+            Assert.Equal(6.7M, basketTotalTax);
+            Assert.Equal(74.68M, basketTotalPrice);
+        }
+
     }
 }

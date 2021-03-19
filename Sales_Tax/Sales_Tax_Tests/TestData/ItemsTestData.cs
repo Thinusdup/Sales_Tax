@@ -5,17 +5,20 @@ namespace Sales_Tax_Tests.TestData
 {
     public class ItemTestData
     {
+        //Input 1
         public static Item BookItem =>
             new Item
             {
-                Price = 12.49,
+                Quantity = 1,
+                Price = 12.49M,
                 Name = "Book",
                 CategoryTax = new CategoryTax{TaxableItemCategories = new List<TaxableItemCategory>{}}
             };
         public static Item MusicCdItem =>
             new Item
             {
-                Price = 14.99,
+                Quantity = 1,
+                Price = 14.99M,
                 Name = "Music CD",
                 CategoryTax = new CategoryTax
                 {
@@ -31,13 +34,18 @@ namespace Sales_Tax_Tests.TestData
         public static Item ChocolateBarItem =>
             new Item
             {
-                Price = 0.85,
-                Name = "Chocolate bar"
+                Quantity = 1,
+                Price = 0.85M,
+                Name = "Chocolate bar",
+                CategoryTax = new CategoryTax { TaxableItemCategories = new List<TaxableItemCategory> { } }
             };
+
+        //Input 2
         public static Item ImportedBoxOfChocolatesItem =>
             new Item
             {
-                Price = 10,
+                Quantity = 1,
+                Price = 10M,
                 Name = "Imported Box of chocolates",
                 CategoryTax = new CategoryTax
                 {
@@ -53,7 +61,8 @@ namespace Sales_Tax_Tests.TestData
         public static Item ImportedBottleOfPerfume =>
             new Item
             {
-                Price = 47.50,
+                Quantity = 1,
+                Price = 47.50M,
                 Name = "Imported Bottle of perfume",
                 CategoryTax = new CategoryTax
                 {
@@ -70,10 +79,13 @@ namespace Sales_Tax_Tests.TestData
                     }
                 }
             };
+
+        //Input 3
         public static Item ImportedBottleOfPerfumeNo2Item =>
             new Item
             {
-                Price = 27.99,
+                Quantity = 1,
+                Price = 27.99M,
                 Name = "Imported Bottle of perfume",
                 CategoryTax = new CategoryTax
                 {
@@ -93,7 +105,8 @@ namespace Sales_Tax_Tests.TestData
         public static Item BottleOfPerfumeItem =>
             new Item
             {
-                Price = 18.99,
+                Quantity = 1,
+                Price = 18.99M,
                 Name = "Bottle of perfume",
                 CategoryTax = new CategoryTax
                 {
@@ -109,14 +122,27 @@ namespace Sales_Tax_Tests.TestData
         public static Item BottleOfParacetamolItem =>
             new Item
             {
-                Price = 9.75,
-                Name = "Bottle of paracetamol"
+                Quantity = 1,
+                Price = 9.75M,
+                Name = "Bottle of paracetamol",
+                CategoryTax = new CategoryTax { TaxableItemCategories = new List<TaxableItemCategory> { } }
             };
-        public static Item BoxOfChocolates2Item =>
+        public static Item ImportedBoxOfChocolates2Item =>
             new Item
             {
-                Price = 11.25,
-                Name = "Box of chocolates"
+                Quantity = 1,
+                Price = 11.25M,
+                Name = "Box of chocolates",
+                CategoryTax = new CategoryTax
+                {
+                    TaxableItemCategories = new List<TaxableItemCategory>
+                    {
+                        new TaxableItemCategory
+                        {
+                            CategoryName = "Imported", CategoryTaxRate = 5
+                        }
+                    }
+                }
             };
 
     }
