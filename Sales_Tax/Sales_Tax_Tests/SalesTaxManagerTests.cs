@@ -28,9 +28,16 @@ namespace Sales_Tax_Tests
             }
 
             var finalItemPriceWithTax = itemTestData.Price;
+
+            var interest = new Interest
+            {
+                InterestCalculated = interestOnProduct,
+                ItemPrice = itemTestData.Price
+            };
+
             if (interestOnProduct != 0)
             {
-                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestOnProduct, itemTestData.Price);
+                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interest);
             }
             Assert.Equal(0, interestOnProduct);
             Assert.Equal(12.49M, finalItemPriceWithTax);
@@ -52,9 +59,15 @@ namespace Sales_Tax_Tests
                 }
             }
             var finalItemPriceWithTax = itemTestData.Price;
+            var interest = new Interest
+            {
+                InterestCalculated = interestOnProduct,
+                ItemPrice = itemTestData.Price
+            };
+
             if (interestOnProduct != 0)
             {
-                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestOnProduct, itemTestData.Price);
+                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interest);
             }
 
             Assert.Equal(1.5M, interestOnProduct);
@@ -77,9 +90,15 @@ namespace Sales_Tax_Tests
                 }
             }
             var finalItemPriceWithTax = itemTestData.Price;
+            var interest = new Interest
+            {
+                InterestCalculated = interestOnProduct,
+                ItemPrice = itemTestData.Price
+            };
+
             if (interestOnProduct != 0)
             {
-                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestOnProduct, itemTestData.Price);
+                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interest);
             }
 
             Assert.Equal(0M, interestOnProduct);
@@ -113,9 +132,16 @@ namespace Sales_Tax_Tests
                     }
                 }
                 var finalItemPriceWithTax = basketItem.Price;
+
+                var interest = new Interest
+                {
+                    InterestCalculated = interestPerProduct,
+                    ItemPrice = basketItem.Price
+                };
+             
                 if (interestPerProduct != 0)
                 {
-                    finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestPerProduct, basketItem.Price);
+                    finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interest);
                 }
 
                 basketTotalTax += interestPerProduct;
@@ -144,9 +170,15 @@ namespace Sales_Tax_Tests
             }
 
             var finalItemPriceWithTax = itemTestData.Price;
+            var interest = new Interest
+            {
+                InterestCalculated = interestOnProduct,
+                ItemPrice = itemTestData.Price
+            };
+
             if (interestOnProduct != 0)
             {
-                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestOnProduct, itemTestData.Price);
+                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interest);
             }
 
             Assert.Equal(0.50M, interestOnProduct);
@@ -169,9 +201,15 @@ namespace Sales_Tax_Tests
             }
 
             var finalItemPriceWithTax = itemTestData.Price;
+            var interest = new Interest
+            {
+                InterestCalculated = interestOnProduct,
+                ItemPrice = itemTestData.Price
+            };
+
             if (interestOnProduct != 0)
             {
-                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestOnProduct, itemTestData.Price);
+                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interest);
             }
 
             Assert.Equal(7.15M, interestOnProduct);
@@ -204,10 +242,17 @@ namespace Sales_Tax_Tests
                     }
                 }
                 var finalItemPriceWithTax = basketItem.Price;
+                var interest = new Interest
+                {
+                    InterestCalculated = interestPerProduct,
+                    ItemPrice = basketItem.Price
+                };
+
                 if (interestPerProduct != 0)
                 {
-                    finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestPerProduct, basketItem.Price);
+                    finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interest);
                 }
+
 
                 basketTotalTax += interestPerProduct;
                 basketTotalPrice += finalItemPriceWithTax;
@@ -235,9 +280,15 @@ namespace Sales_Tax_Tests
                 }
             }
             var finalItemPriceWithTax = itemTestData.Price;
+            var interest = new Interest
+            {
+                InterestCalculated = interestOnProduct,
+                ItemPrice = itemTestData.Price
+            };
+
             if (interestOnProduct != 0)
             {
-                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestOnProduct, itemTestData.Price);
+                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interest);
             }
 
             Assert.Equal(4.2M, interestOnProduct);
@@ -260,9 +311,15 @@ namespace Sales_Tax_Tests
                 }
             }
             var finalItemPriceWithTax = itemTestData.Price;
+            var interest = new Interest
+            {
+                InterestCalculated = interestOnProduct,
+                ItemPrice = itemTestData.Price
+            };
+
             if (interestOnProduct != 0)
             {
-                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestOnProduct, itemTestData.Price);
+                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interest);
             }
 
             Assert.Equal(1.9M, interestOnProduct);
@@ -285,9 +342,15 @@ namespace Sales_Tax_Tests
                 }
             }
             var finalItemPriceWithTax = itemTestData.Price;
+            var interest = new Interest
+            {
+                InterestCalculated = interestOnProduct,
+                ItemPrice = itemTestData.Price
+            };
+
             if (interestOnProduct != 0)
             {
-                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestOnProduct, itemTestData.Price);
+                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interest);
             }
 
             Assert.Equal(0M, interestOnProduct);
@@ -310,9 +373,15 @@ namespace Sales_Tax_Tests
                 }
             }
             var finalItemPriceWithTax = itemTestData.Price;
+            var interest = new Interest
+            {
+                InterestCalculated = interestOnProduct,
+                ItemPrice = itemTestData.Price
+            };
+
             if (interestOnProduct != 0)
             {
-                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestOnProduct, itemTestData.Price);
+                finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interest);
             }
 
             Assert.Equal(0.6M, interestOnProduct);
@@ -347,10 +416,17 @@ namespace Sales_Tax_Tests
                     }
                 }
                 var finalItemPriceWithTax = basketItem.Price;
+                var interest = new Interest
+                {
+                    InterestCalculated = interestPerProduct,
+                    ItemPrice = basketItem.Price
+                };
+
                 if (interestPerProduct != 0)
                 {
-                    finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestPerProduct, basketItem.Price);
+                    finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interest);
                 }
+
 
                 basketTotalTax += interestPerProduct;
                 basketTotalPrice += finalItemPriceWithTax;

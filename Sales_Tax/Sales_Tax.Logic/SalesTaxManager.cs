@@ -31,15 +31,14 @@ namespace Sales_Tax.Logic
             return ceiling;
         }
 
-      /// <summary>
-      /// This method Calculates the Item Final Price including the tax on that item
-      /// </summary>
-      /// <param name="interestCalculated"></param>
-      /// <param name="itemPrice"></param>
-      /// <returns></returns>
-        public decimal CalculateItemFinalPriceWithTax(decimal interestCalculated, decimal itemPrice)
+        /// <summary>
+        /// This method Calculates the Item Final Price including the tax on that item
+        /// </summary>
+        /// <param name="interest"></param>
+        /// <returns></returns>
+        public decimal CalculateItemFinalPriceWithTax(Interest interest)
         {
-            var finalItemPrice = Math.Round(interestCalculated + itemPrice,2);
+            var finalItemPrice = Math.Round(interest.InterestCalculated + interest.ItemPrice,2);
 
             return finalItemPrice;
         }
