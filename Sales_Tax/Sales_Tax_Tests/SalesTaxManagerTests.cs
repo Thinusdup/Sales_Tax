@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Sales_Tax.Logic;
 using Sales_Tax.Common.Models;
-using Sales_Tax_Tests.TestData;
+using Sales_Tax.Data;
 using Xunit;
 
 namespace Sales_Tax_Tests

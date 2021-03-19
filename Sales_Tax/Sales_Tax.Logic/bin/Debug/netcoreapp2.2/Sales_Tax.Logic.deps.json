@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v2.2": {
       "Sales_Tax.Logic/1.0.0": {
         "dependencies": {
-          "Sales_Tax.Common": "1.0.0"
+          "Sales_Tax.Common": "1.0.0",
+          "Sales_Tax.Data": "1.0.0"
         },
         "runtime": {
           "Sales_Tax.Logic.dll": {}
@@ -17,6 +18,14 @@
       "Sales_Tax.Common/1.0.0": {
         "runtime": {
           "Sales_Tax.Common.dll": {}
+        }
+      },
+      "Sales_Tax.Data/1.0.0": {
+        "dependencies": {
+          "Sales_Tax.Common": "1.0.0"
+        },
+        "runtime": {
+          "Sales_Tax.Data.dll": {}
         }
       }
     }
@@ -28,6 +37,11 @@
       "sha512": ""
     },
     "Sales_Tax.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Sales_Tax.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

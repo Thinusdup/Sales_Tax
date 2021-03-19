@@ -9,3 +9,10 @@ C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax\obj\Debug\netcoreapp2
 C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax\obj\Debug\netcoreapp2.2\Sales_Tax.dll
 C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax\obj\Debug\netcoreapp2.2\Sales_Tax.pdb
 C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax\obj\Debug\netcoreapp2.2\Sales_Tax.csprojAssemblyReference.cache
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax\bin\Debug\netcoreapp2.2\Sales_Tax.Common.dll
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax\bin\Debug\netcoreapp2.2\Sales_Tax.Data.dll
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax\bin\Debug\netcoreapp2.2\Sales_Tax.Logic.dll
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax\bin\Debug\netcoreapp2.2\Sales_Tax.Logic.pdb
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax\bin\Debug\netcoreapp2.2\Sales_Tax.Common.pdb
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax\bin\Debug\netcoreapp2.2\Sales_Tax.Data.pdb
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax\obj\Debug\netcoreapp2.2\Sales_Tax.csproj.CopyComplete

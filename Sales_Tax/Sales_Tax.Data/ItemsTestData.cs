@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Sales_Tax.Common.Models;
 
-namespace Sales_Tax_Tests.TestData
+namespace Sales_Tax.Data
 {
     public class ItemTestData
     {

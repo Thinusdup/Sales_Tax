@@ -1,19 +1,26 @@
 ﻿using System;
 using Sales_Tax.Common.Models;
+using Sales_Tax.Logic.Models;
 
 namespace Sales_Tax.Logic
 {
-    public class SalesTaxManager
+    public interface ISalesTaxManager
+    {
+        decimal CalculateSalesTaxPerItem(TaxableItemCategory itemCategory, decimal itemPrice);
+        decimal RoundUpToNearestZeroPointZeroFive(decimal value);
+        decimal CalculateItemFinalPriceWithTax(Interest interest);
+    }
+    public class SalesTaxManager: ISalesTaxManager
     {
         /// <summary>
         /// This method calculates the sales tax only per item
         /// </summary>
         /// <param name="itemCategory"></param>
-        /// <param name="item"></param>
+        /// <param name="itemPrice"></param>
         /// <returns></returns>
-        public decimal CalculateSalesTaxPerItem(TaxableItemCategory itemCategory, Item item)
+        public decimal CalculateSalesTaxPerItem(TaxableItemCategory itemCategory, decimal itemPrice)
         {
-            var taxRate = RoundUpToNearestZeroPointZeroFive(itemCategory.CategoryTaxRate * item.Price / 100);
+            var taxRate = RoundUpToNearestZeroPointZeroFive(itemCategory.CategoryTaxRate * itemPrice / 100);
 
             return taxRate;
         }

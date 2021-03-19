@@ -17,3 +17,5 @@ C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax_Tests\obj\Debug\netco
 C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax_Tests\obj\Debug\netcoreapp2.2\Sales_Tax_Tests.pdb
 C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax_Tests\bin\Debug\netcoreapp2.2\Sales_Tax.Common.dll
 C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax_Tests\bin\Debug\netcoreapp2.2\Sales_Tax.Common.pdb
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax_Tests\bin\Debug\netcoreapp2.2\Sales_Tax.Data.dll
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax_Tests\bin\Debug\netcoreapp2.2\Sales_Tax.Data.pdb

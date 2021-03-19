@@ -217,6 +217,19 @@
         "runtime": {
           "bin/placeholder/Sales_Tax.Common.dll": {}
         }
+      },
+      "Sales_Tax.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "dependencies": {
+          "Sales_Tax.Common": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Sales_Tax.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Sales_Tax.Data.dll": {}
+        }
       }
     }
   },
@@ -693,12 +706,18 @@
       "type": "project",
       "path": "../Sales_Tax.Common/Sales_Tax.Common.csproj",
       "msbuildProject": "../Sales_Tax.Common/Sales_Tax.Common.csproj"
+    },
+    "Sales_Tax.Data/1.0.0": {
+      "type": "project",
+      "path": "../Sales_Tax.Data/Sales_Tax.Data.csproj",
+      "msbuildProject": "../Sales_Tax.Data/Sales_Tax.Data.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "Microsoft.NETCore.App >= 2.2.0",
-      "Sales_Tax.Common >= 1.0.0"
+      "Sales_Tax.Common >= 1.0.0",
+      "Sales_Tax.Data >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -733,6 +752,9 @@
           "projectReferences": {
             "C:\\Users\\Thinus\\source\\repos\\Sales_Tax\\Sales_Tax\\Sales_Tax.Common\\Sales_Tax.Common.csproj": {
               "projectPath": "C:\\Users\\Thinus\\source\\repos\\Sales_Tax\\Sales_Tax\\Sales_Tax.Common\\Sales_Tax.Common.csproj"
+            },
+            "C:\\Users\\Thinus\\source\\repos\\Sales_Tax\\Sales_Tax\\Sales_Tax.Data\\Sales_Tax.Data.csproj": {
+              "projectPath": "C:\\Users\\Thinus\\source\\repos\\Sales_Tax\\Sales_Tax\\Sales_Tax.Data\\Sales_Tax.Data.csproj"
             }
           }
         }
