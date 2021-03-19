@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Sales_Tax.Models
+namespace Sales_Tax.Common.Models
 {
    public class Basket
     {

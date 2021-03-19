@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Sales_Tax.Models;
+using Sales_Tax.Common.Models;
 
 namespace Sales_Tax_Tests.TestData
 {

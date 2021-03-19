@@ -1,5 +1,5 @@
 ﻿using System;
-using Sales_Tax.Models;
+using Sales_Tax.Common.Models;
 
 namespace Sales_Tax.Logic
 {
@@ -13,20 +13,18 @@ namespace Sales_Tax.Logic
         /// <returns></returns>
         public decimal CalculateSalesTaxPerItem(TaxableItemCategory itemCategory, Item item)
         {
-            var taxRate = RoundUp(itemCategory.CategoryTaxRate * item.Price / 100);
+            var taxRate = RoundUpToNearestZeroPointZeroFive(itemCategory.CategoryTaxRate * item.Price / 100);
 
             return taxRate;
         }
 
 
         /// <summary>
-        /// For a tax rate of n%, a shelf price of p contains (np / 100 rounded up to the nearest 0.05) amount of tax.
-        /// The statement above I understand and read it to "UP" to the nearest
-        /// My understanding of rounding "Up" to the nearest would indeed work with the below method, I hope I understood the statement right
+        /// This method rounds any decimal number up to the the nearest 0.05 amount.
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public decimal RoundUp(decimal value)
+        public decimal RoundUpToNearestZeroPointZeroFive(decimal value)
         {
             var ceiling = Math.Ceiling(value * 20) / 20;
       
@@ -34,7 +32,7 @@ namespace Sales_Tax.Logic
         }
 
       /// <summary>
-      /// This method Calculates Item Final Price
+      /// This method Calculates the Item Final Price including the tax on that item
       /// </summary>
       /// <param name="interestCalculated"></param>
       /// <param name="itemPrice"></param>
@@ -45,17 +43,6 @@ namespace Sales_Tax.Logic
 
             return finalItemPrice;
         }
-
-      public void CalculateBasketTotalSalesTax(decimal interestCalculated, decimal itemPrice)
-      {
-        
-      }
-
-      public void CalculateBasketTotal(decimal interestCalculated, decimal itemPrice)
-      {
-
-      }
-
 
     }
 }

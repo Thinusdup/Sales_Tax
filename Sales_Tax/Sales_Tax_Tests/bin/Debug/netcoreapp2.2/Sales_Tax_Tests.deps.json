@@ -1078,14 +1078,14 @@
           "Microsoft.NET.Test.Sdk": "16.0.1"
         }
       },
-      "Sales_Tax/1.0.0": {
+      "Sales_Tax.Common/1.0.0": {
         "runtime": {
-          "Sales_Tax.dll": {}
+          "Sales_Tax.Common.dll": {}
         }
       },
       "Sales_Tax.Logic/1.0.0": {
         "dependencies": {
-          "Sales_Tax": "1.0.0"
+          "Sales_Tax.Common": "1.0.0"
         },
         "runtime": {
           "Sales_Tax.Logic.dll": {}
@@ -1645,7 +1645,7 @@
       "path": "xunit.runner.visualstudio/2.4.0",
       "hashPath": "xunit.runner.visualstudio.2.4.0.nupkg.sha512"
     },
-    "Sales_Tax/1.0.0": {
+    "Sales_Tax.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

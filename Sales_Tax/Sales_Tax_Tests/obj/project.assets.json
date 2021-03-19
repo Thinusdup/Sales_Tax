@@ -1699,21 +1699,21 @@
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "Sales_Tax/1.0.0": {
+      "Sales_Tax.Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
         "compile": {
-          "bin/placeholder/Sales_Tax.dll": {}
+          "bin/placeholder/Sales_Tax.Common.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Sales_Tax.dll": {}
+          "bin/placeholder/Sales_Tax.Common.dll": {}
         }
       },
       "Sales_Tax.Logic/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
-          "Sales_Tax": "1.0.0"
+          "Sales_Tax.Common": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Sales_Tax.Logic.dll": {}
@@ -5988,10 +5988,10 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Sales_Tax/1.0.0": {
+    "Sales_Tax.Common/1.0.0": {
       "type": "project",
-      "path": "../Sales_Tax/Sales_Tax.csproj",
-      "msbuildProject": "../Sales_Tax/Sales_Tax.csproj"
+      "path": "../Sales_Tax.Common/Sales_Tax.Common.csproj",
+      "msbuildProject": "../Sales_Tax.Common/Sales_Tax.Common.csproj"
     },
     "Sales_Tax.Logic/1.0.0": {
       "type": "project",

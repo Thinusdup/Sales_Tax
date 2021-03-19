@@ -1,4 +1,4 @@
-﻿namespace Sales_Tax.Models
+﻿namespace Sales_Tax.Common.Models
 {
    public class TaxableItemCategory
     {

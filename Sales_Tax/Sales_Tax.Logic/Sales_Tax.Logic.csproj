@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Sales_Tax\Sales_Tax.csproj" />
+    <ProjectReference Include="..\Sales_Tax.Common\Sales_Tax.Common.csproj" />
   </ItemGroup>
 
 </Project>
