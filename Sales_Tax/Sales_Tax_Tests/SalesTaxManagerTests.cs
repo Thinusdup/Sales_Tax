@@ -15,7 +15,7 @@ namespace Sales_Tax_Tests
         {
             decimal interestOnProduct = 0;
 
-            var itemTestData = ItemTestData.BookItem;
+            var itemTestData = ItemTestData.Book;
 
             var manager = new SalesTaxManager();
 
@@ -40,7 +40,7 @@ namespace Sales_Tax_Tests
         public void CalculateSalesTaxForMusicItem()
         {
             decimal interestOnProduct = 0;
-            var itemTestData = ItemTestData.MusicCdItem;
+            var itemTestData = ItemTestData.MusicCd;
 
             var manager = new SalesTaxManager();
 
@@ -65,7 +65,7 @@ namespace Sales_Tax_Tests
         public void CalculateSalesTaxForChocolateBarItem()
         {
             decimal interestOnProduct = 0;
-            var itemTestData = ItemTestData.ChocolateBarItem;
+            var itemTestData = ItemTestData.ChocolateBar;
 
             var manager = new SalesTaxManager();
 
@@ -96,9 +96,9 @@ namespace Sales_Tax_Tests
 
             var basketItems = new List<Item>
             {
-                ItemTestData.BookItem,
-                ItemTestData.MusicCdItem,
-                ItemTestData.ChocolateBarItem
+                ItemTestData.Book,
+                ItemTestData.MusicCd,
+                ItemTestData.ChocolateBar
             };
 
             foreach (var basketItem in basketItems)
@@ -131,7 +131,7 @@ namespace Sales_Tax_Tests
         public void CalculateSalesTaxForImportedBottleOfImportedBoxOfChocolatesItem()
         {
             decimal interestOnProduct = 0;
-            var itemTestData = ItemTestData.ImportedBoxOfChocolatesItem;
+            var itemTestData = ItemTestData.ImportedBoxOfChocolates;
 
             var manager = new SalesTaxManager();
 
@@ -188,7 +188,7 @@ namespace Sales_Tax_Tests
 
             var basketItems = new List<Item>
             {
-                ItemTestData.ImportedBoxOfChocolatesItem,
+                ItemTestData.ImportedBoxOfChocolates,
                 ItemTestData.ImportedBottleOfPerfume
             };
 
@@ -223,7 +223,7 @@ namespace Sales_Tax_Tests
         public void CalculateSalesTaxForImportedBottleOfPerfumeNo2Item()
         {
             decimal interestOnProduct = 0;
-            var itemTestData = ItemTestData.ImportedBottleOfPerfumeNo2Item;
+            var itemTestData = ItemTestData.ImportedBottleOfPerfumeNo2;
 
             var manager = new SalesTaxManager();
 
@@ -248,7 +248,7 @@ namespace Sales_Tax_Tests
         public void CalculateSalesTaxForBottleOfPerfumeItem()
         {
             decimal interestOnProduct = 0;
-            var itemTestData = ItemTestData.BottleOfPerfumeItem;
+            var itemTestData = ItemTestData.BottleOfPerfume;
 
             var manager = new SalesTaxManager();
 
@@ -273,7 +273,7 @@ namespace Sales_Tax_Tests
         public void CalculateSalesTaxForParacetamolItem()
         {
             decimal interestOnProduct = 0;
-            var itemTestData = ItemTestData.BottleOfParacetamolItem;
+            var itemTestData = ItemTestData.BottleOfParacetamol;
 
             var manager = new SalesTaxManager();
 
@@ -329,9 +329,9 @@ namespace Sales_Tax_Tests
 
             var basketItems = new List<Item>
             {
-                ItemTestData.ImportedBottleOfPerfumeNo2Item,
-                ItemTestData.BottleOfPerfumeItem,
-                ItemTestData.BottleOfParacetamolItem,
+                ItemTestData.ImportedBottleOfPerfumeNo2,
+                ItemTestData.BottleOfPerfume,
+                ItemTestData.BottleOfParacetamol,
                 ItemTestData.ImportedBoxOfChocolates2Item
             };
 

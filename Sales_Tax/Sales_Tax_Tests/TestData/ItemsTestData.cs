@@ -6,7 +6,7 @@ namespace Sales_Tax_Tests.TestData
     public class ItemTestData
     {
         //Input 1
-        public static Item BookItem =>
+        public static Item Book =>
             new Item
             {
                 Quantity = 1,
@@ -14,7 +14,7 @@ namespace Sales_Tax_Tests.TestData
                 Name = "Book",
                 CategoryTax = new CategoryTax{TaxableItemCategories = new List<TaxableItemCategory>{}}
             };
-        public static Item MusicCdItem =>
+        public static Item MusicCd =>
             new Item
             {
                 Quantity = 1,
@@ -31,7 +31,7 @@ namespace Sales_Tax_Tests.TestData
                     }
                 }
             };
-        public static Item ChocolateBarItem =>
+        public static Item ChocolateBar =>
             new Item
             {
                 Quantity = 1,
@@ -41,7 +41,7 @@ namespace Sales_Tax_Tests.TestData
             };
 
         //Input 2
-        public static Item ImportedBoxOfChocolatesItem =>
+        public static Item ImportedBoxOfChocolates =>
             new Item
             {
                 Quantity = 1,
@@ -81,7 +81,7 @@ namespace Sales_Tax_Tests.TestData
             };
 
         //Input 3
-        public static Item ImportedBottleOfPerfumeNo2Item =>
+        public static Item ImportedBottleOfPerfumeNo2 =>
             new Item
             {
                 Quantity = 1,
@@ -102,7 +102,7 @@ namespace Sales_Tax_Tests.TestData
                     }
                 }
             };
-        public static Item BottleOfPerfumeItem =>
+        public static Item BottleOfPerfume =>
             new Item
             {
                 Quantity = 1,
@@ -119,7 +119,7 @@ namespace Sales_Tax_Tests.TestData
                     }
                 }
             };
-        public static Item BottleOfParacetamolItem =>
+        public static Item BottleOfParacetamol =>
             new Item
             {
                 Quantity = 1,
