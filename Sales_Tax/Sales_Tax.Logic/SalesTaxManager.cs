@@ -6,7 +6,7 @@ namespace Sales_Tax.Logic
     public interface ISalesTaxManager
     {
         decimal CalculateSalesTaxPerItem(TaxableItemCategory itemCategory, decimal itemPrice);
-        decimal CalculateItemFinalPriceWithTax(SalesTax interest);
+        decimal CalculateItemFinalPriceWithTax(SalesTax salesTax);
     }
     public class SalesTaxManager: ISalesTaxManager
     {
@@ -23,13 +23,12 @@ namespace Sales_Tax.Logic
             return taxRate;
         }
 
-
         /// <summary>
         /// This method rounds any decimal number up to the the nearest 0.05 amount.
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public decimal RoundUpToNearestZeroPointZeroFive(decimal value)
+        private static decimal RoundUpToNearestZeroPointZeroFive(decimal value)
         {
             var ceiling = Math.Ceiling(value * 20) / 20;
       
@@ -39,11 +38,11 @@ namespace Sales_Tax.Logic
         /// <summary>
         /// This method Calculates the Item Final Price including the tax on that item
         /// </summary>
-        /// <param name="interest"></param>
+        /// <param name="salesTax"></param>
         /// <returns></returns>
-        public decimal CalculateItemFinalPriceWithTax(SalesTax interest)
+        public decimal CalculateItemFinalPriceWithTax(SalesTax salesTax)
         {
-            var finalItemPrice = Math.Round(interest.SalesTaxCalculated + interest.ItemPrice,2);
+            var finalItemPrice = Math.Round(salesTax.SalesTaxCalculated + salesTax.ItemPrice,2);
 
             return finalItemPrice;
         }
