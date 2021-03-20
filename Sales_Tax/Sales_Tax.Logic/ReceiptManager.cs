@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Sales_Tax.Common.Models;
 
 using Sales_Tax.Logic.Models;
@@ -8,48 +8,76 @@ namespace Sales_Tax.Logic
 {
     public interface IReceiptManager
     {
-        Basket CalculateBasketItems(List<ItemDto> items);
+       Task<Receipt> PrintReceiptAsync(Basket basket);
     }
     public class ReceiptManager : IReceiptManager
     {
-        private readonly ISalesTaxManager salesTaxManager;
-
+        private readonly ISalesTaxManager _salesTaxManager;
         public ReceiptManager(ISalesTaxManager salesTaxManager)
         {
-            this.salesTaxManager = salesTaxManager;
+            _salesTaxManager = salesTaxManager;
         }
 
-        public Basket CalculateBasketItems(List<Item> basketItems)
+        public async Task<Receipt> PrintReceiptAsync(Basket basket)
+        {
+            var receipt = new Receipt
+            {
+                ReceiptDetails = await BuildReceipt(basket)
+            };
+
+            return receipt;
+        }
+        private async Task<ReceiptDetails> BuildReceipt(Basket basket)
+        {
+            var calculatedBasket = await CalculateBasketItems(basket);
+
+            var receiptDetails = new ReceiptDetails
+            {
+                Basket = calculatedBasket
+            };
+            foreach (var item in calculatedBasket.Items)
+            {
+                receiptDetails.SalesTax += item.SalesTaxAmount;
+                receiptDetails.Total += item.PriceAfterTax;
+            }
+
+            return receiptDetails;
+        }
+
+        private  Task<Basket> CalculateBasketItems(Basket basket)
         {
 
-            decimal basketTotalTax = 0;
-            decimal basketTotalPrice = 0;
-            var ourBasket = new Basket();
+            var basketItems = basket.Items;
+            var listItems = new List<Item>();
+            var ourBasket = new Basket
+            {
+                BasketName = basket.BasketName
+            };
 
             foreach (var basketItem in basketItems)
             {
-                decimal interestPerProduct = 0;
+                decimal salesTaxPerProduct = 0;
 
                 if (basketItem.CategoryTax.TaxableItemCategories.Count != 0)
                 {
                     foreach (var itemCategory in basketItem.CategoryTax.TaxableItemCategories)
                     {
-                        interestPerProduct +=
-                            salesTaxManager.CalculateSalesTaxPerItem(itemCategory, basketItem.Price);
+                        salesTaxPerProduct +=
+                            _salesTaxManager.CalculateSalesTaxPerItem(itemCategory, basketItem.Price);
                     }
                 }
 
                 var finalItemPriceWithTax = basketItem.Price;
 
-                var interest = new Interest
+                var salesTax = new SalesTax
                 {
-                    InterestCalculated = interestPerProduct,
+                    SalesTaxCalculated = salesTaxPerProduct,
                     ItemPrice = basketItem.Price
                 };
 
-                if (interestPerProduct != 0)
+                if (salesTaxPerProduct != 0)
                 {
-                    finalItemPriceWithTax = salesTaxManager.CalculateItemFinalPriceWithTax(interest);
+                    finalItemPriceWithTax = _salesTaxManager.CalculateItemFinalPriceWithTax(salesTax);
                 }
 
                 var item = new Item
@@ -57,75 +85,17 @@ namespace Sales_Tax.Logic
                     Name = basketItem.Name,
                     Price = basketItem.Price,
                     Quantity = basketItem.Quantity,
-                    PriceAfterTax = finalItemPriceWithTax
+                    PriceAfterTax = finalItemPriceWithTax,
+                    SalesTaxAmount = salesTaxPerProduct
 
                 };
-                ourBasket.Items.Add(item);
-
+                
+                listItems.Add(item);
             }
+            ourBasket.Items = listItems;
 
-            return ourBasket;
+            return Task.FromResult(ourBasket);
         }
-        //public Receipt PrintReceipt(ReceiptDetails receiptDetails, Basket basket)
-        //{
 
-        //    //string basketName = "Input 1";
-        //    //var manager = new SalesTaxManager();
-
-        //    //double basketTotalTax = 0;
-        //    //double basketTotalPrice = 0;
-
-        //    //var basketItems = new List<Item>
-        //    //{
-        //    //    ItemTestData.BookItem,
-        //    //    ItemTestData.MusicCdItem,
-        //    //    ItemTestData.ChocolateBarItem
-        //    //};
-
-        //    //foreach (var basketItem in basketItems)
-        //    //{
-        //    //    double interestPerProduct = 0;
-
-        //    //    if (basketItem.CategoryTax.TaxableItemCategories.Count != 0)
-        //    //    {
-        //    //        foreach (var item in basketItem.CategoryTax.TaxableItemCategories)
-        //    //        {
-        //    //            interestPerProduct += manager.CalculateSalesTaxPerItem(item, basketItem);
-        //    //        }
-        //    //    }
-        //    //    var finalItemPriceWithTax = basketItem.Price;
-        //    //    if (interestPerProduct != 0)
-        //    //    {
-        //    //        finalItemPriceWithTax = manager.CalculateItemFinalPriceWithTax(interestPerProduct, basketItem.Price);
-        //    //    }
-
-        //    //    basketTotalTax += interestPerProduct;
-        //    //    basketTotalPrice += finalItemPriceWithTax;
-        //    //}
-
-        //    //basketTotalTax = Math.Round(basketTotalTax, 2);
-        //    //basketTotalPrice = Math.Round(basketTotalPrice, 2);
-
-        //    //var basket = new Basket
-        //    //{
-        //    //    Items = basketItems
-        //    //};
-
-        //    //var receiptDetails = new ReceiptDetails
-        //    //{
-        //    //    BasketName = basketName,
-        //    //    SalesTax = basketTotalTax,
-        //    //    Total = basketTotalPrice
-        //    //};
-
-        //    //var receipt = new Receipt
-        //    //{
-        //    //    ReceiptDetails = receiptDetails,
-        //    //    Basket = basket
-        //    //};
-
-
-        //    return null;
-        //}
     }
 }

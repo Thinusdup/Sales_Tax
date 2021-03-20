@@ -1,10 +1,9 @@
 ﻿namespace Sales_Tax.Logic.Models
 {
-   public class Receipt 
-   {
-       public ReceiptDetails ReceiptDetails { get; set; }
-       public Basket Basket{ get; set; }
+    public class Receipt
+    {
+        public ReceiptDetails ReceiptDetails { get; set; }
 
-   }
- 
+    }
+
 }

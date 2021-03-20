@@ -1,14 +1,12 @@
 ﻿using System;
 using Sales_Tax.Common.Models;
-using Sales_Tax.Logic.Models;
 
 namespace Sales_Tax.Logic
 {
     public interface ISalesTaxManager
     {
         decimal CalculateSalesTaxPerItem(TaxableItemCategory itemCategory, decimal itemPrice);
-        decimal RoundUpToNearestZeroPointZeroFive(decimal value);
-        decimal CalculateItemFinalPriceWithTax(Interest interest);
+        decimal CalculateItemFinalPriceWithTax(SalesTax interest);
     }
     public class SalesTaxManager: ISalesTaxManager
     {
@@ -43,9 +41,9 @@ namespace Sales_Tax.Logic
         /// </summary>
         /// <param name="interest"></param>
         /// <returns></returns>
-        public decimal CalculateItemFinalPriceWithTax(Interest interest)
+        public decimal CalculateItemFinalPriceWithTax(SalesTax interest)
         {
-            var finalItemPrice = Math.Round(interest.InterestCalculated + interest.ItemPrice,2);
+            var finalItemPrice = Math.Round(interest.SalesTaxCalculated + interest.ItemPrice,2);
 
             return finalItemPrice;
         }

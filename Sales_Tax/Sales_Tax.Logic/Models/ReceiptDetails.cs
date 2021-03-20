@@ -1,8 +1,10 @@
-﻿namespace Sales_Tax.Logic.Models
+﻿using Sales_Tax.Common.Models;
+
+namespace Sales_Tax.Logic.Models
 {
-    public class ReceiptDetails
+   public class ReceiptDetails
     {
-        public string BasketName { get; set; }
+        public Basket Basket { get; set; }
         public decimal SalesTax { get; set; }
         public decimal Total { get; set; }
     }

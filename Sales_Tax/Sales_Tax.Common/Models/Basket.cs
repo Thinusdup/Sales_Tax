@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
-using Sales_Tax.Common.Models;
 
-namespace Sales_Tax.Logic.Models
+namespace Sales_Tax.Common.Models
 {
    public class Basket
     {
+        public string BasketName { get; set; }
         public List<Item> Items { get; set; }
+      
     }
 }

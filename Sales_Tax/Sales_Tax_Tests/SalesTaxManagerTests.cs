@@ -23,15 +23,15 @@ namespace Sales_Tax_Tests
             {
                 foreach (var item in itemTestData.CategoryTax.TaxableItemCategories)
                 {
-                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
+                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData.Price);
                 }
             }
 
             var finalItemPriceWithTax = itemTestData.Price;
 
-            var interest = new Interest
+            var interest = new SalesTax
             {
-                InterestCalculated = interestOnProduct,
+                SalesTaxCalculated = interestOnProduct,
                 ItemPrice = itemTestData.Price
             };
 
@@ -55,13 +55,13 @@ namespace Sales_Tax_Tests
             {
                 foreach (var item in itemTestData.CategoryTax.TaxableItemCategories)
                 {
-                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
+                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData.Price);
                 }
             }
             var finalItemPriceWithTax = itemTestData.Price;
-            var interest = new Interest
+            var interest = new SalesTax
             {
-                InterestCalculated = interestOnProduct,
+                SalesTaxCalculated = interestOnProduct,
                 ItemPrice = itemTestData.Price
             };
 
@@ -86,13 +86,13 @@ namespace Sales_Tax_Tests
             {
                 foreach (var item in itemTestData.CategoryTax.TaxableItemCategories)
                 {
-                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
+                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData.Price);
                 }
             }
             var finalItemPriceWithTax = itemTestData.Price;
-            var interest = new Interest
+            var interest = new SalesTax
             {
-                InterestCalculated = interestOnProduct,
+                SalesTaxCalculated = interestOnProduct,
                 ItemPrice = itemTestData.Price
             };
 
@@ -128,14 +128,14 @@ namespace Sales_Tax_Tests
                 {
                     foreach (var item in basketItem.CategoryTax.TaxableItemCategories)
                     {
-                        interestPerProduct += manager.CalculateSalesTaxPerItem(item, basketItem);
+                        interestPerProduct += manager.CalculateSalesTaxPerItem(item, basketItem.Price);
                     }
                 }
                 var finalItemPriceWithTax = basketItem.Price;
 
-                var interest = new Interest
+                var interest = new SalesTax
                 {
-                    InterestCalculated = interestPerProduct,
+                    SalesTaxCalculated = interestPerProduct,
                     ItemPrice = basketItem.Price
                 };
              
@@ -165,14 +165,14 @@ namespace Sales_Tax_Tests
             {
                 foreach (var item in itemTestData.CategoryTax.TaxableItemCategories)
                 {
-                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
+                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData.Price);
                 }
             }
 
             var finalItemPriceWithTax = itemTestData.Price;
-            var interest = new Interest
+            var interest = new SalesTax
             {
-                InterestCalculated = interestOnProduct,
+                SalesTaxCalculated = interestOnProduct,
                 ItemPrice = itemTestData.Price
             };
 
@@ -196,14 +196,14 @@ namespace Sales_Tax_Tests
             {
                 foreach (var item in itemTestData.CategoryTax.TaxableItemCategories)
                 {
-                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
+                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData.Price);
                 }
             }
 
             var finalItemPriceWithTax = itemTestData.Price;
-            var interest = new Interest
+            var interest = new SalesTax
             {
-                InterestCalculated = interestOnProduct,
+                SalesTaxCalculated = interestOnProduct,
                 ItemPrice = itemTestData.Price
             };
 
@@ -238,13 +238,13 @@ namespace Sales_Tax_Tests
                 {
                     foreach (var item in basketItem.CategoryTax.TaxableItemCategories)
                     {
-                        interestPerProduct += manager.CalculateSalesTaxPerItem(item, basketItem);
+                        interestPerProduct += manager.CalculateSalesTaxPerItem(item, basketItem.Price);
                     }
                 }
                 var finalItemPriceWithTax = basketItem.Price;
-                var interest = new Interest
+                var interest = new SalesTax
                 {
-                    InterestCalculated = interestPerProduct,
+                    SalesTaxCalculated = interestPerProduct,
                     ItemPrice = basketItem.Price
                 };
 
@@ -276,13 +276,13 @@ namespace Sales_Tax_Tests
             {
                 foreach (var item in itemTestData.CategoryTax.TaxableItemCategories)
                 {
-                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
+                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData.Price);
                 }
             }
             var finalItemPriceWithTax = itemTestData.Price;
-            var interest = new Interest
+            var interest = new SalesTax
             {
-                InterestCalculated = interestOnProduct,
+                SalesTaxCalculated = interestOnProduct,
                 ItemPrice = itemTestData.Price
             };
 
@@ -307,13 +307,13 @@ namespace Sales_Tax_Tests
             {
                 foreach (var item in itemTestData.CategoryTax.TaxableItemCategories)
                 {
-                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
+                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData.Price);
                 }
             }
             var finalItemPriceWithTax = itemTestData.Price;
-            var interest = new Interest
+            var interest = new SalesTax
             {
-                InterestCalculated = interestOnProduct,
+                SalesTaxCalculated = interestOnProduct,
                 ItemPrice = itemTestData.Price
             };
 
@@ -338,13 +338,13 @@ namespace Sales_Tax_Tests
             {
                 foreach (var item in itemTestData.CategoryTax.TaxableItemCategories)
                 {
-                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
+                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData.Price);
                 }
             }
             var finalItemPriceWithTax = itemTestData.Price;
-            var interest = new Interest
+            var interest = new SalesTax
             {
-                InterestCalculated = interestOnProduct,
+                SalesTaxCalculated = interestOnProduct,
                 ItemPrice = itemTestData.Price
             };
 
@@ -369,13 +369,13 @@ namespace Sales_Tax_Tests
             {
                 foreach (var item in itemTestData.CategoryTax.TaxableItemCategories)
                 {
-                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData);
+                    interestOnProduct += manager.CalculateSalesTaxPerItem(item, itemTestData.Price);
                 }
             }
             var finalItemPriceWithTax = itemTestData.Price;
-            var interest = new Interest
+            var interest = new SalesTax
             {
-                InterestCalculated = interestOnProduct,
+                SalesTaxCalculated = interestOnProduct,
                 ItemPrice = itemTestData.Price
             };
 
@@ -412,13 +412,13 @@ namespace Sales_Tax_Tests
                 {
                     foreach (var item in basketItem.CategoryTax.TaxableItemCategories)
                     {
-                        interestPerProduct += manager.CalculateSalesTaxPerItem(item, basketItem);
+                        interestPerProduct += manager.CalculateSalesTaxPerItem(item, basketItem.Price);
                     }
                 }
                 var finalItemPriceWithTax = basketItem.Price;
-                var interest = new Interest
+                var interest = new SalesTax
                 {
-                    InterestCalculated = interestPerProduct,
+                    SalesTaxCalculated = interestPerProduct,
                     ItemPrice = basketItem.Price
                 };
 
