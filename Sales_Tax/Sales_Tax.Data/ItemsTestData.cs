@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Sales_Tax.Common.Enums;
 using Sales_Tax.Common.Models;
 
 namespace Sales_Tax.Data
@@ -24,10 +25,7 @@ namespace Sales_Tax.Data
                 {
                     TaxableItemCategories = new List<TaxableItemCategory>
                     {
-                        new TaxableItemCategory
-                        {
-                            CategoryName = "All", CategoryTaxRate = 10
-                        }
+                        SalesTaxCategoriesTestData.All
                     }
                 }
             };
@@ -51,10 +49,7 @@ namespace Sales_Tax.Data
                 {
                     TaxableItemCategories = new List<TaxableItemCategory>
                     {
-                        new TaxableItemCategory
-                        {
-                            CategoryName = "Imported", CategoryTaxRate = 5
-                        }
+                        SalesTaxCategoriesTestData.ImportTax
                     }
                 }
             };
@@ -68,14 +63,8 @@ namespace Sales_Tax.Data
                 {
                     TaxableItemCategories = new List<TaxableItemCategory>
                     {
-                        new TaxableItemCategory
-                        {
-                            CategoryName = "All", CategoryTaxRate = 10
-                        },
-                        new TaxableItemCategory
-                        {
-                            CategoryName = "Imported", CategoryTaxRate = 5
-                        }
+                        SalesTaxCategoriesTestData.All,
+                        SalesTaxCategoriesTestData.ImportTax
                     }
                 }
             };
@@ -91,14 +80,8 @@ namespace Sales_Tax.Data
                 {
                     TaxableItemCategories = new List<TaxableItemCategory>
                     {
-                        new TaxableItemCategory
-                        {
-                            CategoryName = "All", CategoryTaxRate = 10
-                        },
-                        new TaxableItemCategory
-                        {
-                            CategoryName = "Imported", CategoryTaxRate = 5
-                        }
+                        SalesTaxCategoriesTestData.All,
+                        SalesTaxCategoriesTestData.ImportTax
                     }
                 }
             };
@@ -112,10 +95,7 @@ namespace Sales_Tax.Data
                 {
                     TaxableItemCategories = new List<TaxableItemCategory>
                     {
-                        new TaxableItemCategory
-                        {
-                            CategoryName = "All", CategoryTaxRate = 10
-                        }
+                        SalesTaxCategoriesTestData.All
                     }
                 }
             };
@@ -137,10 +117,7 @@ namespace Sales_Tax.Data
                 {
                     TaxableItemCategories = new List<TaxableItemCategory>
                     {
-                        new TaxableItemCategory
-                        {
-                            CategoryName = "Imported", CategoryTaxRate = 5
-                        }
+                        SalesTaxCategoriesTestData.ImportTax
                     }
                 }
             };
