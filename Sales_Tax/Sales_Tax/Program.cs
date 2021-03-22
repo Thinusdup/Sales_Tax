@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Sales_Tax.Common.Models;
 using Sales_Tax.Data;
 using Sales_Tax.Logic;
@@ -13,7 +12,7 @@ namespace Sales_Tax
     {
         static void Main(string[] args)
         {
-            //setup our DI
+            //Setup our Dependency Injection
             var serviceProvider = new ServiceCollection()
                 .AddSingleton<ISalesTaxManager, SalesTaxManager>()
                 .AddSingleton<IReceiptManager, ReceiptManager>()
