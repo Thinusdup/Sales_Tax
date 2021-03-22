@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Sales_Tax.Common.Enums;
 using Sales_Tax.Common.Models;
 
 namespace Sales_Tax.Data
@@ -121,6 +120,5 @@ namespace Sales_Tax.Data
                     }
                 }
             };
-
     }
 }

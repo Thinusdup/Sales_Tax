@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Sales_Tax.Common.Models;
 
@@ -13,13 +14,22 @@ namespace Sales_Tax.Logic
     public class ReceiptManager : IReceiptManager
     {
         private readonly ISalesTaxManager _salesTaxManager;
+   
         public ReceiptManager(ISalesTaxManager salesTaxManager)
         {
             _salesTaxManager = salesTaxManager;
         }
-
+       
+        /// <summary>
+        /// Print the receipt method
+        /// </summary>
+        /// <param name="basket"></param>
+        /// <returns></returns>
         public async Task<Receipt> PrintReceiptAsync(Basket basket)
         {
+            if (string.IsNullOrEmpty(basket.BasketName) )
+                throw new ArgumentException();
+
             var receipt = new Receipt
             {
                 ReceiptDetails = await BuildReceipt(basket)
@@ -27,6 +37,12 @@ namespace Sales_Tax.Logic
 
             return receipt;
         }
+
+        /// <summary>
+        /// Build the final receipt details and items to display
+        /// </summary>
+        /// <param name="basket"></param>
+        /// <returns></returns>
         private async Task<ReceiptDetails> BuildReceipt(Basket basket)
         {
             var calculatedBasket = await CalculateBasketItems(basket);
@@ -44,6 +60,11 @@ namespace Sales_Tax.Logic
             return receiptDetails;
         }
 
+        /// <summary>
+        /// Calculate the basket items final price after tax as well as the total sales tax
+        /// </summary>
+        /// <param name="basket"></param>
+        /// <returns></returns>
         private  Task<Basket> CalculateBasketItems(Basket basket)
         {
 
@@ -96,6 +117,5 @@ namespace Sales_Tax.Logic
 
             return Task.FromResult(ourBasket);
         }
-
     }
 }

@@ -2,7 +2,8 @@
 
 namespace Sales_Tax.Common.Enums
 {
-  public enum SalesTaxCategoriesEnum: byte
+    //Enumerable list of Tax Categories
+    public enum SalesTaxCategoriesEnum: byte
     {
         [Description("All")]
         All = 1,

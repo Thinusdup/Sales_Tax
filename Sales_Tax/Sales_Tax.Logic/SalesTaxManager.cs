@@ -8,7 +8,7 @@ namespace Sales_Tax.Logic
         decimal CalculateSalesTaxPerItem(TaxableItemCategory itemCategory, decimal itemPrice);
         decimal CalculateItemFinalPriceWithTax(SalesTax salesTax);
     }
-    public class SalesTaxManager: ISalesTaxManager
+    public class SalesTaxManager : ISalesTaxManager
     {
         /// <summary>
         /// This method calculates the sales tax only per item
@@ -31,7 +31,7 @@ namespace Sales_Tax.Logic
         private static decimal RoundUpToNearestZeroPointZeroFive(decimal value)
         {
             var ceiling = Math.Ceiling(value * 20) / 20;
-      
+
             return ceiling;
         }
 
@@ -42,7 +42,7 @@ namespace Sales_Tax.Logic
         /// <returns></returns>
         public decimal CalculateItemFinalPriceWithTax(SalesTax salesTax)
         {
-            var finalItemPrice = Math.Round(salesTax.SalesTaxCalculated + salesTax.ItemPrice,2);
+            var finalItemPrice = salesTax.SalesTaxCalculated + salesTax.ItemPrice;
 
             return finalItemPrice;
         }
