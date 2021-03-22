@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sales_Tax.Common\Sales_Tax.Common.csproj" />
+    <ProjectReference Include="..\Sales_Tax.Data\Sales_Tax.Data.csproj" />
+  </ItemGroup>
+
+</Project>

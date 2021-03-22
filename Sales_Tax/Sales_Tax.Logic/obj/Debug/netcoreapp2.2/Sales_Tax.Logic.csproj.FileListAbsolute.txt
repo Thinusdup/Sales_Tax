@@ -1,0 +1,14 @@
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax.Logic\bin\Debug\netcoreapp2.2\Sales_Tax.Logic.deps.json
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax.Logic\bin\Debug\netcoreapp2.2\Sales_Tax.Logic.dll
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax.Logic\bin\Debug\netcoreapp2.2\Sales_Tax.Logic.pdb
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax.Logic\obj\Debug\netcoreapp2.2\Sales_Tax.Logic.csprojAssemblyReference.cache
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax.Logic\obj\Debug\netcoreapp2.2\Sales_Tax.Logic.csproj.CoreCompileInputs.cache
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax.Logic\obj\Debug\netcoreapp2.2\Sales_Tax.Logic.AssemblyInfoInputs.cache
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax.Logic\obj\Debug\netcoreapp2.2\Sales_Tax.Logic.AssemblyInfo.cs
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax.Logic\obj\Debug\netcoreapp2.2\Sales_Tax.Logic.csproj.CopyComplete
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax.Logic\obj\Debug\netcoreapp2.2\Sales_Tax.Logic.dll
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax.Logic\obj\Debug\netcoreapp2.2\Sales_Tax.Logic.pdb
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax.Logic\bin\Debug\netcoreapp2.2\Sales_Tax.Common.dll
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax.Logic\bin\Debug\netcoreapp2.2\Sales_Tax.Common.pdb
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax.Logic\bin\Debug\netcoreapp2.2\Sales_Tax.Data.dll
+C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax.Logic\bin\Debug\netcoreapp2.2\Sales_Tax.Data.pdb
