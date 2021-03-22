@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Sales_Tax.Common.Models;
-
 using Sales_Tax.Logic.Models;
 
 namespace Sales_Tax.Logic
 {
-    public interface IReceiptManager
-    {
-       Task<Receipt> PrintReceiptAsync(Basket basket);
-    }
+  
     public class ReceiptManager : IReceiptManager
     {
         private readonly ISalesTaxManager _salesTaxManager;
@@ -65,7 +61,7 @@ namespace Sales_Tax.Logic
         /// </summary>
         /// <param name="basket"></param>
         /// <returns></returns>
-        private  Task<Basket> CalculateBasketItems(Basket basket)
+        private async Task<Basket> CalculateBasketItems(Basket basket)
         {
 
             var basketItems = basket.Items;
@@ -115,7 +111,7 @@ namespace Sales_Tax.Logic
             }
             ourBasket.Items = listItems;
 
-            return Task.FromResult(ourBasket);
+            return await Task.FromResult(ourBasket);
         }
     }
 }
