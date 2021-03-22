@@ -6,4 +6,3 @@ C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax.Common\obj\Debug\netc
 C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax.Common\obj\Debug\netcoreapp2.2\Sales_Tax.Common.AssemblyInfo.cs
 C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax.Common\obj\Debug\netcoreapp2.2\Sales_Tax.Common.dll
 C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax.Common\obj\Debug\netcoreapp2.2\Sales_Tax.Common.pdb
-C:\Users\Thinus\source\repos\Sales_Tax\Sales_Tax\Sales_Tax.Common\obj\Debug\netcoreapp2.2\Sales_Tax.Common.csprojAssemblyReference.cache

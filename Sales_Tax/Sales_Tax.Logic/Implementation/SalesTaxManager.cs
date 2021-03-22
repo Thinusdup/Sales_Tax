@@ -3,11 +3,7 @@ using Sales_Tax.Common.Models;
 
 namespace Sales_Tax.Logic
 {
-    public interface ISalesTaxManager
-    {
-        decimal CalculateSalesTaxPerItem(TaxableItemCategory itemCategory, decimal itemPrice);
-        decimal CalculateItemFinalPriceWithTax(SalesTax salesTax);
-    }
+   
     public class SalesTaxManager : ISalesTaxManager
     {
         /// <summary>
